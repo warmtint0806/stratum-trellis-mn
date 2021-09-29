@@ -1,0 +1,17 @@
+# Copyright 2019-present Open Networking Foundation
+# SPDX-License-Identifier: Apache-2.0
+version: "3"
+
+services:
+  mininet:
+    image: opennetworking/mn-stratum
+    volumes:
+      - ./tmp:/tmp
+      - ./topo:/topo
+    privileged: true
+    ports:
+      - "50001:50001"
+      - "50002:50002"
+      - "50003:50003"
+      - "50004:50004"
+    entrypoint: "/topo/entrypoint.sh"
