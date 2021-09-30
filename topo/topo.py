@@ -103,8 +103,8 @@ def main():
     net = Mininet(
         topo=LeafSpineTopo(),
         switch=StratumBmv2Switch,
-        controller=RemoteController)
-    c0=net.addController(name='c0', controller=RemoteController, ip='127.0.0.1', protocol='tcp', port=6633)
+        controller=None)
+    c0=net.addController(name='onos', controller=RemoteController, ip='127.0.0.1', protocol='tcp', port=6633)
 
     net.start()
     CLI(net)

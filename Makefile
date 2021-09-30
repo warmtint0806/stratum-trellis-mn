@@ -34,7 +34,11 @@ mn-host:
 	docker-compose exec mininet m $@
 
 netcfg:
-	${onos_post} ${onos_url}/v1/network/configuration/ -d@./topo/netcfg.json
+	onos-netcfg localhost ./topo/netcfg.json
+	onos-netcfg localhost ./tmp/leaf1/onos-netcfg.json
+	onos-netcfg localhost ./tmp/leaf2/onos-netcfg.json
+	onos-netcfg localhost ./tmp/spine1/onos-netcfg.json
+	onos-netcfg localhost ./tmp/spine2/onos-netcfg.json
 
 reset: stop
 	-rm -rf ./tmp
